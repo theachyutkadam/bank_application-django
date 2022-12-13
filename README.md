@@ -31,3 +31,18 @@ touch department/forms.py department/urls.py
 touch account_type/forms.py account_type/urls.py
 touch user_information/forms.py user_information/urls.py
 touch particular_detail/forms.py particular_detail/urls.py
+
+
+cd card && mkdir templates && cd templates && mkdir card && cd card && touch index.html show.html new.html edit.html && cd && cd workspace/python/bank_application-django/
+cd user && mkdir templates && cd templates && mkdir user && cd user && touch index.html show.html new.html edit.html && cd && cd workspace/python/bank_application-django/
+cd salary && mkdir templates && cd templates && mkdir salary && cd salary && touch index.html show.html new.html edit.html && cd && cd workspace/python/bank_application-django/
+cd manager && mkdir templates && cd templates && mkdir manager && cd manager && touch index.html show.html new.html edit.html && cd && cd workspace/python/bank_application-django/
+cd address && mkdir templates && cd templates && mkdir address && cd address && touch index.html show.html new.html edit.html && cd && cd workspace/python/bank_application-django/
+cd nominee && mkdir templates && cd templates && mkdir nominee && cd nominee && touch index.html show.html new.html edit.html && cd && cd workspace/python/bank_application-django/
+cd customer && mkdir templates && cd templates && mkdir customer && cd customer && touch index.html show.html new.html edit.html && cd && cd workspace/python/bank_application-django/
+cd employee && mkdir templates && cd templates && mkdir employee && cd employee && touch index.html show.html new.html edit.html && cd && cd workspace/python/bank_application-django/
+cd particular && mkdir templates && cd templates && mkdir particular && cd particular && touch index.html show.html new.html edit.html && cd && cd workspace/python/bank_application-django/
+cd department && mkdir templates && cd templates && mkdir department && cd department && touch index.html show.html new.html edit.html && cd && cd workspace/python/bank_application-django/
+cd account_type && mkdir templates && cd templates && mkdir account_type && cd account_type && touch index.html show.html new.html edit.html && cd && cd workspace/python/bank_application-django/
+cd user_information && mkdir templates && cd templates && mkdir user_information && cd user_information && touch index.html show.html new.html edit.html && cd && cd workspace/python/bank_application-django/
+cd particular_detail && mkdir templates && cd templates && mkdir particular_detail && cd particular_detail && touch index.html show.html new.html edit.html && cd && cd workspace/python/bank_application-django/

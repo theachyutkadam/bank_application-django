@@ -6,28 +6,38 @@ from account_type.models import AccountType
 
 def index(request):
     account_types = AccountType.objects.all()
-    return render(request, "show.html", {'account_types': account_types})
+    return render(request, "account_type/index.html", {'account_types': account_types})
 
 
 def create(request):
+    print("**************")
+    print("**************")
+    print(request)
+    print("**************")
+    print("**************")
+    print("**************")
     if request.method == "POST":
         form = AccountTypeForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('/show')
+            return redirect('account_type/show', {'account_types': form})
     else:
         form = AccountTypeForm()
-    return render(request, 'index.html', {'form': form})
+    return render(request, 'account_type/index.html', {'form': form})
 
 
 def show(request):
     account_type = AccountType.objects.get(id=id)
-    return render(request, "show.html", {'account_types': account_type})
+    return render(request, "account_type/show.html", {'account_types': account_type})
+
+
+def new(request):
+    return render(request, "account_type/new.html")
 
 
 def edit(request, id):
     account_type = AccountType.objects.get(id=id)
-    return render(request, 'edit.html', {'account_type': account_type})
+    return render(request, 'account_type/edit.html', {'account_type': account_type})
 
 
 def update(request, id):
@@ -36,7 +46,7 @@ def update(request, id):
     if form.is_valid():
         form.save()
         return redirect("/show")
-    return render(request, 'edit.html', {'account_type': account_type})
+    return render(request, 'account_type/edit.html', {'account_type': account_type})
 
 
 def destroy(request, id):

@@ -4,12 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <title>Index</title>
-  {% load staticfiles %}
+  {% load static %}
   <link rel="stylesheet" href="{% static 'css/style.css' %}" />
 </head>
 
 <body>
-  <form method="POST" class="post-form" action="/emp">
+  <form method="POST" class="post-form" action="create/">
     {% csrf_token %}
     <div class="container">
       <br>
@@ -22,19 +22,22 @@
       <div class="form-group row">
         <label class="col-sm-2 col-form-label">Name:</label>
         <div class="col-sm-4">
-          {{ form.ename }}
+          <!-- {{ form.name }} -->
+          <input name="name">
         </div>
       </div>
       <div class="form-group row">
         <label class="col-sm-2 col-form-label">Loan Intrest Rate:</label>
         <div class="col-sm-4">
-          {{ form.loan_intrest_rate }}
+          <!-- {{ form.loan_intrest_rate }} -->
+          <input name="loan_intrest_rate">
         </div>
       </div>
       <div class="form-group row">
         <label class="col-sm-2 col-form-label">Saving Intrest Rate:</label>
         <div class="col-sm-4">
-          {{ form.saving_intrest_rate }}
+          <!-- {{ form.saving_intrest_rate }} -->
+          <input name="saving_intrest_rate">
         </div>
       </div>
       <div class="form-group row">

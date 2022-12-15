@@ -10,25 +10,20 @@ def index(request):
 
 
 def create(request):
-    print("**************")
-    print("**************")
-    print(request)
-    print("**************")
-    print("**************")
-    print("**************")
     if request.method == "POST":
         form = AccountTypeForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('account_type/show', {'account_types': form})
+            print("+++++++create")
+            return redirect('account_type/show', {'account_type': form})
     else:
         form = AccountTypeForm()
-    return render(request, 'account_type/index.html', {'form': form})
+    return render(request, 'account_type/new.html')
 
 
-def show(request):
+def show(request, id):
     account_type = AccountType.objects.get(id=id)
-    return render(request, "account_type/show.html", {'account_types': account_type})
+    return render(request, "account_type/show.html", {'account_type': account_type})
 
 
 def new(request):
@@ -41,11 +36,13 @@ def edit(request, id):
 
 
 def update(request, id):
+    print("******************")
+    print("******************")
     account_type = AccountType.objects.get(id=id)
     form = AccountTypeForm(request.POST, instance=account_type)
     if form.is_valid():
         form.save()
-        return redirect("/show")
+        return redirect('account_type/show', {'account_type': form})
     return render(request, 'account_type/edit.html', {'account_type': account_type})
 
 

@@ -9,7 +9,7 @@
 </head>
 
 <body>
-  <form method="POST" class="post-form" action="create/">
+  <form method="POST" class="post-form" action="create">
     {% csrf_token %}
     <div class="container">
       <br>
@@ -22,28 +22,26 @@
       <div class="form-group row">
         <label class="col-sm-2 col-form-label">Name:</label>
         <div class="col-sm-4">
-          <!-- {{ form.name }} -->
-          <input name="name">
+          <input type="text" name="name" id="name">
         </div>
       </div>
       <div class="form-group row">
         <label class="col-sm-2 col-form-label">Loan Intrest Rate:</label>
         <div class="col-sm-4">
-          <!-- {{ form.loan_intrest_rate }} -->
-          <input name="loan_intrest_rate">
+          <input type="text" name="loan_intrest_rate" id="loan_intrest_rate">
         </div>
       </div>
       <div class="form-group row">
         <label class="col-sm-2 col-form-label">Saving Intrest Rate:</label>
         <div class="col-sm-4">
-          <!-- {{ form.saving_intrest_rate }} -->
-          <input name="saving_intrest_rate">
+          <input type="text" name="saving_intrest_rate" id="saving_intrest_rate">
         </div>
       </div>
       <div class="form-group row">
         <label class="col-sm-1 col-form-label"></label>
         <div class="col-sm-4">
           <button type="submit" class="btn btn-primary">Submit</button>
+          <a href="/account_type">Back</a>
         </div>
       </div>
     </div>

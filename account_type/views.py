@@ -8,7 +8,6 @@ def index(request):
     account_types = AccountType.objects.all()
     return render(request, "account_type/index.html", {'account_types': account_types})
 
-
 def create(request):
     if request.method == "POST":
         form = AccountTypeForm(request.POST)

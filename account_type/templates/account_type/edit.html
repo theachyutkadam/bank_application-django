@@ -1,51 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <title>Edit</title>
-</head>
-
-<body>
+{% extends "dashboard.html" %}
+{% block body %}
+<div class="container">
+  <h4>Edit AccountType</h4>
   <form method="POST" class="post-form" action="account_type/update/{{account_type.id}}">
     {% csrf_token %}
-    <div class="container">
-      <br>
-      <div class="form-group row">
-        <label class="col-sm-1 col-form-label"></label>
-        <div class="col-sm-4">
-          <h3>Update Details</h3>
-        </div>
-      </div>
-      <div class="form-group row">
-        <label class="col-sm-2 col-form-label">Name:</label>
-        <div class="col-sm-4">
-          <input type="text" name="name" id="name" required maxlength="100" value="{{ account_type.name }}" />
-        </div>
-      </div>
-      <div class="form-group row">
-        <label class="col-sm-2 col-form-label">Loan Intrest Rate:</label>
-        <div class="col-sm-4">
-          <input type="text" name="loan_intrest_rate" id="loan_intrest_rate" required maxlength="254"
-            value="{{ account_type.loan_intrest_rate }}" />
-        </div>
-      </div>
-      <div class="form-group row">
-        <label class="col-sm-2 col-form-label">Saving Intrest Rate:</label>
-        <div class="col-sm-4">
-          <input type="text" name="saving_intrest_rate" id="saving_intrest_rate" required maxlength="15"
-            value="{{ account_type.saving_intrest_rate }}" />
-        </div>
-      </div>
-      <div class="form-group row">
-        <label class="col-sm-1 col-form-label"></label>
-        <div class="col-sm-4">
-          <button type="submit" class="btn btn-success">Update</button>
-          <a href="/account_type" class="btn btn-primary">Back</a>
-        </div>
+    <div class="mb-3">
+      <input type="text" name="name" id="name" placeholder="Name" value="{{ account_type.name }}">
+    </div>
+    <div class="mb-3">
+      <input type="text" name="loan_intrest_rate" id="loan_intrest_rate" placeholder="Loan Intrest Rate"
+        value="{{ account_type.loan_intrest_rate }}">
+    </div>
+    <div class="mb-3">
+      <input type="text" name="saving_intrest_rate" id="saving_intrest_rate" placeholder="Saving Intrest Rate"
+        value="{{ account_type.saving_intrest_rate }}">
+    </div>
+    <div class="mb-3">
+      <div class="col-sm-4">
+        <button type="submit" class="btn btn-primary">Update</button>
+        <a href="/account_type">Back</a>
       </div>
     </div>
   </form>
-</body>
-
-</html>
+</div>
+{% endblock body %}

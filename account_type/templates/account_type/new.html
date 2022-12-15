@@ -1,51 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <title>Index</title>
-  {% load static %}
-  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-</head>
-
-<body>
+{% extends "dashboard.html" %}
+{% block body %}
+<div class="container">
+  <h4>Create AccountType</h4>
   <form method="POST" class="post-form" action="create">
     {% csrf_token %}
-    <div class="container">
-      <br>
-      <div class="form-group row">
-        <label class="col-sm-1 col-form-label"></label>
-        <div class="col-sm-4">
-          <h3>Enter Details</h3>
-        </div>
-      </div>
-      <div class="form-group row">
-        <label class="col-sm-2 col-form-label">Name:</label>
-        <div class="col-sm-4">
-          <input type="text" name="name" id="name">
-        </div>
-      </div>
-      <div class="form-group row">
-        <label class="col-sm-2 col-form-label">Loan Intrest Rate:</label>
-        <div class="col-sm-4">
-          <input type="text" name="loan_intrest_rate" id="loan_intrest_rate">
-        </div>
-      </div>
-      <div class="form-group row">
-        <label class="col-sm-2 col-form-label">Saving Intrest Rate:</label>
-        <div class="col-sm-4">
-          <input type="text" name="saving_intrest_rate" id="saving_intrest_rate">
-        </div>
-      </div>
-      <div class="form-group row">
-        <label class="col-sm-1 col-form-label"></label>
-        <div class="col-sm-4">
-          <button type="submit" class="btn btn-primary">Submit</button>
-          <a href="/account_type">Back</a>
-        </div>
+    <div class="mb-3">
+      <input type="text" name="name" id="name" placeholder="Name">
+    </div>
+    <div class="mb-3">
+      <input type="text" name="loan_intrest_rate" id="loan_intrest_rate" placeholder="Loan Intrest Rate">
+    </div>
+    <div class="mb-3">
+      <input type="text" name="saving_intrest_rate" id="saving_intrest_rate" placeholder="Saving Intrest Rate">
+    </div>
+    <div class="mb-3">
+      <div class="col-sm-4">
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <a href="/account_type">Back</a>
       </div>
     </div>
   </form>
-</body>
-
-</html>
+</div>
+{% endblock body %}

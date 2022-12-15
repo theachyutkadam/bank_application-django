@@ -1,18 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <title>AccountType Record</title>
-</head>
-
-<body>
-  Id = {{ account_type.id }}<br><br>
-  Name = {{ account_type.name }}<br><br>
-  LOAN_INTREST_RATE = {{ account_type.loan_intrest_rate }}<br><br>
-  SAVING_INTREST_RATE = {{ account_type.saving_intrest_rate }}<br><br>
-  <a href="/account_type/new" class="btn btn-primary">Add New</a>
-  <a href="/account_type" class="btn btn-primary">Back</a>
-</body>
-
-</html>
+{% extends "dashboard.html" %}
+{% block body %}
+<div class="container">
+  <h4>Show AccountType</h4>
+  {% csrf_token %}
+  <div class="mb-3">
+    Name ={{ account_type.name }}
+  </div>
+  <div class="mb-3">
+    Loan Intrest Rate = {{ account_type.loan_intrest_rate }}
+  </div>
+  <div class="mb-3">
+    Saving Intrest Rate = {{ account_type.saving_intrest_rate }}
+  </div>
+  <div class="mb-3">
+    <a href="/account_type/new" class="btn btn-primary">Add New</a>
+    <a href="/account_type" class="btn btn-light">Back</a>
+  </div>
+</div>
+{% endblock body %}

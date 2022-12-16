@@ -1,0 +1,29 @@
+{% extends "dashboard.html" %}
+{% block body %}
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Loan Intrest Rate</th>
+      <th scope="col">Saving Intrest Rate</th>
+      <th scope="col"><a href="/account_type/new" class="btn btn-primary">New AccountType</a></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for account_type in account_types %}
+    <tr>
+      <td>{{ account_type.id }}</td>
+      <td>{{ account_type.name }}</td>
+      <td>{{ account_type.loan_intrest_rate }}</td>
+      <td>{{ account_type.saving_intrest_rate }}</td>
+      <td>
+        <a href="/account_type/show/{{ account_type.id }}" class="btn btn-info">Show</a>
+        <a href="/account_type/edit/{{ account_type.id }}" class="btn btn-success">Edit</a>
+        <a href="/account_type/delete/{{ account_type.id }}" class="btn btn-danger">Delete</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock body %}

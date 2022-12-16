@@ -1,0 +1,24 @@
+{% extends "dashboard.html" %}
+{% block body %}
+<div class="container">
+  <h4>Create AccountType</h4>
+  <form method="POST" class="post-form" action="create">
+    {% csrf_token %}
+    <div class="mb-3">
+      <input type="text" name="name" id="name" placeholder="Name">
+    </div>
+    <div class="mb-3">
+      <input type="text" name="loan_intrest_rate" id="loan_intrest_rate" placeholder="Loan Intrest Rate">
+    </div>
+    <div class="mb-3">
+      <input type="text" name="saving_intrest_rate" id="saving_intrest_rate" placeholder="Saving Intrest Rate">
+    </div>
+    <div class="mb-3">
+      <div class="col-sm-4">
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <a href="/account_type">Back</a>
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock body %}

@@ -1,0 +1,27 @@
+{% extends "dashboard.html" %}
+{% block body %}
+<div class="container">
+  <h4>Edit Manager</h4>
+  <form method="POST" class="post-form" action="/manager/update/{{manager.id}}">
+    {% csrf_token %}
+    <div class="mb-3">
+      <input type="text" name="name" id="name" placeholder="Name" value="{{ manager.name }}">
+    </div>
+    <div class="mb-3">
+      <input type="text" name="userid" id="user_id" placeholder="User Id" value="{{ manager.user_id }}">
+    </div>
+    <div class="mb-3">
+      <input type="text" name="departmentid" id="department_id" placeholder="Department ID" value="{{ manager.department_id }}">
+    </div>
+    <div class="mb-3">
+      <input type="text" name="designation" id="designation" placeholder="Designation" value="{{ manager.designation }}">
+    </div>
+    <div class="mb-3">
+      <div class="col-sm-4">
+        <button type="submit" class="btn btn-primary">Update</button>
+        <a href="/department" class="btn btn-light">Back</a>
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock body %}

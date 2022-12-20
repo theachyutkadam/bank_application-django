@@ -1,0 +1,27 @@
+{% extends "dashboard.html" %}
+{% block body %}
+<div class="container">
+  <h4>Create Manager</h4>
+  <form method="POST" class="post-form" action="create">
+    {% csrf_token %}
+    <div class="mb-3">
+      <input type="text" name="name" id="name" placeholder="Name">
+    </div>
+    <div class="mb-3">
+      <input type="text" name="user_id" id="user_id" placeholder="User Id">
+    </div>
+    <div class="mb-3">
+      <input type="text" name="department_id" id="department_id" placeholder="Department ID">
+    </div>
+    <div class="mb-3">
+      <input type="text" name="designation" id="designation" placeholder="Designation">
+    </div>
+    <div class="mb-3">
+      <div class="col-sm-4">
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <a href="/manager">Back</a>
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock body %}

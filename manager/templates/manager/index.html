@@ -1,0 +1,31 @@
+{% extends "dashboard.html" %}
+{% block body %}
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">User ID</th>
+      <th scope="col">Department ID</th>
+      <th scope="col">Designation</th>
+      <th scope="col"><a href="/manager/new" class="btn btn-primary">New Manager</a></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for manager in managers %}
+    <tr>
+      <td>{{ manager.id }}</td>
+      <td>{{ manager.name }}</td>
+      <td>{{ manager.user_id }}</td>
+      <td>{{ manager.department_id }}</td>
+      <td>{{ manager.designation }}</td>
+      <td>
+        <a href="/manager/show/{{ manager.id }}" class="btn btn-info">Show</a>
+        <a href="/manager/edit/{{ manager.id }}" class="btn btn-success">Edit</a>
+        <a href="/manager/delete/{{ manager.id }}" class="btn btn-danger">Delete</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock body %}

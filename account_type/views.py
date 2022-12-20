@@ -14,8 +14,8 @@ def create(request):
         form = AccountTypeForm(request.POST)
         if form.is_valid():
             form.save()
-            department = Department.objects.last()
-            return render(request, 'account_type/show.html', {'account_type': department})
+            account_type = AccountType.objects.last()
+            return render(request, 'account_type/show.html', {'account_type': account_type})
     else:
         form = AccountTypeForm()
     return render(request, 'account_type/new.html')

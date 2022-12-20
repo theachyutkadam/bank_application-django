@@ -8,13 +8,14 @@ def index(request):
     departments = Department.objects.all()
     return render(request, "department/index.html", {'departments': departments})
 
+
 def create(request):
     if request.method == "POST":
         form = DepartmentForm(request.POST)
         if form.is_valid():
             form.save()
             department = Department.objects.last()
-            return render(request, "Department/show.html", {'department': department})
+            return render(request, "department/show.html", {'department': department})
     else:
         form = DepartmentForm()
     return render(request, 'department/new.html')
@@ -22,7 +23,7 @@ def create(request):
 
 def show(request, id):
     department = Department.objects.get(id=id)
-    return render(request, "Department/show.html", {'department': department})
+    return render(request, "department/show.html", {'department': department})
 
 
 def new(request):
@@ -36,10 +37,11 @@ def edit(request, id):
 
 def update(request, id):
     department = Department.objects.get(id=id)
-    department.name =  request.POST['name']
-    department.employee_count =  request.POST['employees']
+    department.name = request.POST['name']
+    department.employee_count = request.POST['employees']
     department.save()
     return render(request, "department/show.html", {'department': department})
+
 
 def destroy(request, id):
     account_type = Department.objects.get(id=id)

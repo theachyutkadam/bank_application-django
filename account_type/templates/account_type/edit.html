@@ -2,7 +2,7 @@
 {% block body %}
 <div class="container">
   <h4>Edit AccountType</h4>
-  <form method="POST" class="post-form" action="account_type/update/{{account_type.id}}">
+  <form method="POST" class="post-form" action="/account_type/update/{{account_type.id}}">
     {% csrf_token %}
     <div class="mb-3">
       <input type="text" name="name" id="name" placeholder="Name" value="{{ account_type.name }}">

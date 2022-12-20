@@ -1,0 +1,17 @@
+{% extends "dashboard.html" %}
+{% block body %}
+<div class="container">
+  <h4>Department</h4>
+  {% csrf_token %}
+  <div class="mb-3">
+    Name = {{ department.name }}
+  </div>
+  <div class="mb-3">
+    Total Employee = {{ department.employee_count}}
+  </div>
+  <div class="mb-3">
+    <a href="/department/new" class="btn btn-primary">Add New</a>
+    <a href="/department" class="btn btn-light">Back</a>
+  </div>
+</div>
+{% endblock body %}

@@ -8,6 +8,7 @@ def index(request):
     account_types = AccountType.objects.all()
     return render(request, "account_type/index.html", {'account_types': account_types})
 
+
 def create(request):
     if request.method == "POST":
         form = AccountTypeForm(request.POST)
@@ -36,11 +37,11 @@ def edit(request, id):
 
 def update(request, id):
     account_type = AccountType.objects.get(id=id)
-    form = AccountTypeForm(request.POST, instance=account_type)
-    if form.is_valid():
-        form.save()
-        return redirect('account_type/show', {'account_type': form})
-    # return render(request, 'account_type/edit.html', {'account_type': account_type})
+    account_type.name = request.POST['name']
+    account_type.loan_intrest_rate = request.POST['loan_intrest_rate']
+    account_type.saving_intrest_rate = request.POST['saving_intrest_rate']
+    account_type.save()
+    return render(request, "account_type/show.html", {'account_type': account_type})
 
 
 def destroy(request, id):

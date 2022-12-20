@@ -25,7 +25,7 @@ def create(request):
 def show(request, id):
     customer = Customer.objects.get(id=id)
     account_types = AccountType.objects.all()
-    return render(request, "customer/show.html", {'customer': customer}, {'account_types': account_types})
+    return render(request, "customer/show.html", {'customer': customer, 'account_types': account_types})
 
 
 def new(request):

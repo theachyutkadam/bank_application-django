@@ -1,0 +1,37 @@
+{% extends "dashboard.html" %}
+{% block body %}
+<div class="container">
+  <h4>Show Customer</h4>
+  {% csrf_token %}
+  <div class="mb-3">
+    Salary ={{ employee.salary_amount }}
+  </div>
+  <div class="mb-3">
+    JoiningDate ={{ employee.date_of_joining }}
+  </div>
+  <div class="mb-3">
+    WorkStatus ={{ employee.work_status }}
+  </div>
+  <div class="mb-3">
+    Designation = {{ employee.designation }}
+  </div>
+  <div class="mb-3">
+    OfficialEmail = {{ employee.official_email }}
+  </div>
+  <div class="mb-3">
+    Education = {{ employee.education }}
+  </div>
+  <div class="mb-3">
+    Department = {{ employee.department.name }}
+  </div>
+  <div class="mb-3">
+    Customer = {{ employee.customer.account_number }}
+  </div>
+
+
+  <div class="mb-3">
+    <a href="/employee/new" class="btn btn-primary">Add New</a>
+    <a href="/employee" class="btn btn-light">Back</a>
+  </div>
+</div>
+{% endblock body %}

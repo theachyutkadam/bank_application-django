@@ -18,7 +18,7 @@
     </div>
     <div class="mb-3">
       <select name="account_type" id="account_type" class="form-control">
-        <option value="{{ customer.account_type }}" selected>{{ customer.account_type.name}}</option>
+        <option value="{{ customer.account_type.id }}" selected>{{ customer.account_type.name}}</option>
         {% for account_type in account_types %}
         <option value="{{ account_type.id }}">{{ account_type.name }}</option>
         {% endfor %}

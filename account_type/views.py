@@ -33,13 +33,14 @@ def edit(request, id):
     account_type = AccountType.objects.get(id=id)
     return render(request, 'account_type/edit.html', {'account_type': account_type})
 
+
 def update(request, id):
     account_type = AccountType.objects.get(id=id)
     form = AccountTypeForm(request.POST, instance=account_type)
     if form.is_valid():
         form.save()
         return redirect('account_type/show', {'account_type': form})
-#     # return render(request, 'account_type/edit.html', {'account_type': account_type})
+    # return render(request, 'account_type/edit.html', {'account_type': account_type})
 
 
 def destroy(request, id):

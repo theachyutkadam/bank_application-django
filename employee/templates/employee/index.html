@@ -1,0 +1,41 @@
+{% extends "dashboard.html" %}
+{% block body %}
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Salary</th>
+      <th scope="col">Education</th>
+      <th scope="col">Depart</th>
+      <th scope="col">Manager</th>
+      <!-- <th scope="col">Customer</th> -->
+      <th scope="col">Joining</th>
+      <th scope="col">Status</th>
+      <th scope="col">Desig</th>
+      <th scope="col">OfficeEmail</th>
+      <th scope="col"><a href="/employee/new" class="btn btn-primary">New Employee</a></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for employee in employees %}
+    <tr>
+      <td>{{ employee.id }}</td>
+      <td>{{ employee.salary_amount }}</td>
+      <td>{{ employee.education }}</td>
+      <td>{{ employee.department.name }}</td>
+      <td>{{ employee.manager.full_name }}</td>
+      <!-- <td>{{ employee.customer.full_name }}</td> -->
+      <td>{{ employee.date_of_joining }}</td>
+      <td>{{ employee.work_status }}</td>
+      <td>{{ employee.designation }}</td>
+      <td>{{ employee.official_email }}</td>
+      <td>
+        <a href="/employee/show/{{ employee.id }}" class="btn btn-info">Show</a>
+        <a href="/employee/edit/{{ employee.id }}" class="btn btn-success">Edit</a>
+        <a href="/employee/delete/{{ employee.id }}" class="btn btn-danger">Delete</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock body %}

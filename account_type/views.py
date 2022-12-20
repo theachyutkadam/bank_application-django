@@ -8,6 +8,7 @@ def index(request):
     account_types = AccountType.objects.all()
     return render(request, "account_type/index.html", {'account_types': account_types})
 
+
 def create(request):
     if request.method == "POST":
         form = AccountTypeForm(request.POST)
@@ -35,8 +36,6 @@ def edit(request, id):
 
 
 def update(request, id):
-    print("******************")
-    print("******************")
     account_type = AccountType.objects.get(id=id)
     form = AccountTypeForm(request.POST, instance=account_type)
     if form.is_valid():

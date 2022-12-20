@@ -49,7 +49,6 @@ INSTALLED_APPS = [
     'department',
     'account_type',
     'user_information',
-    'particular_detail',
     'dashboard',
 ]
 

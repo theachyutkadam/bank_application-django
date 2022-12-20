@@ -1,5 +1,6 @@
 from django.urls import path
 from account_type import views
+
 urlpatterns = [
     path('', views.index),
     path('create', views.create, name='create-page'),

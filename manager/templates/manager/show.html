@@ -1,0 +1,23 @@
+{% extends "dashboard.html" %}
+{% block body %}
+<div class="container">
+  <h4>Manager</h4>
+  {% csrf_token %}
+  <div class="mb-3">
+    Name = {{ manager.name }}
+  </div>
+  <div class="mb-3">
+    User Id = {{ manager.user_id}}
+  </div>
+  <div class="mb-3">
+    Department Id = {{ manager.department_id}}
+  </div>
+  <div class="mb-3">
+    Designation = {{ manager.designation}}
+  </div>
+  <div class="mb-3">
+    <a href="/manager/new" class="btn btn-primary">Add New</a>
+    <a href="/manager" class="btn btn-light">Back</a>
+  </div>
+</div>
+{% endblock body %}

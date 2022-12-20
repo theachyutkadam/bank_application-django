@@ -28,20 +28,21 @@ def delete_data(request, id):
     if request.method == 'POST':
         pi = Address.objects.get(pk=id)
         pi.delete()
-        return HttpResponseRedirect('/address/edit.html')
+        return HttpResponseRedirect('/address')
 
 #This Function will updateor edir
 
 def update_data(request, id):
     if request.method == 'POST':
         pi = Address.objects.get(pk=id)
-        fm= AddressForm(request.POST, instance=pi)
+        fm = AddressForm(request.POST, instance=pi)
         if fm.is_valid():
             fm.save()
-            return render(request, 'address/show.html', {'form':fm, 'address':Address.objects.all()})
+            form = AddressForm()
+            return render(request, 'address/show.html', {'form':form, 'address':Address.objects.all()})
     else:
         pi = Address.objects.get(pk=id)
-        fm= AddressForm(instance=pi)
+        fm = AddressForm(instance=pi)
     return render(request, 'address/edit.html', {'form':fm})
 
 

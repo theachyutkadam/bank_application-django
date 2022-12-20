@@ -1,0 +1,21 @@
+{% extends "dashboard.html" %}
+{% block body %}
+<div class="container">
+  <h4>Edit Department</h4>
+  <form method="POST" class="post-form" action="/department/update/{{department.id}}">
+    {% csrf_token %}
+    <div class="mb-3">
+      <input type="text" name="name" id="name" placeholder="Name" value="{{ department.name }}">
+    </div>
+    <div class="mb-3">
+      <input type="text" name="employees" id="employee" placeholder="Employee" value="{{ department.employee_count }}">
+    </div>
+    <div class="mb-3">
+      <div class="col-sm-4">
+        <button type="submit" class="btn btn-primary">Update</button>
+        <a href="/department" class="btn btn-light">Back</a>
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock body %}

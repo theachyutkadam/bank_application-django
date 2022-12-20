@@ -1,0 +1,23 @@
+{% extends "dashboard.html" %}
+{% block body %}
+<div class="container">
+  <h4>Show Customer</h4>
+  {% csrf_token %}
+  <div class="mb-3">
+    Amount Limit ={{ customer.amount_limit }}
+  </div>
+  <div class="mb-3">
+    Current Balance = {{ customer.current_balance }}
+  </div>
+  <div class="mb-3">
+    Account Number = {{ customer.account_number }}
+  </div>
+  <div class="mb-3">
+    AccountType = {{ customer.account_type.name }}
+  </div>
+  <div class="mb-3">
+    <a href="/customer/new" class="btn btn-primary">Add New</a>
+    <a href="/customer" class="btn btn-light">Back</a>
+  </div>
+</div>
+{% endblock body %}

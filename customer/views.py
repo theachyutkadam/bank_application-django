@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from customer.forms import CustomerForm
 from customer.models import Customer
+from account_type.models import AccountType
 # Create your views here.
 
 
@@ -14,8 +15,8 @@ def create(request):
         form = CustomerForm(request.POST)
         if form.is_valid():
             form.save()
-            department = Department.objects.last()
-            return render(request, 'customer/show.html', {'customer': department})
+            customer = Customer.objects.last()
+            return render(request, 'customer/show.html', {'customer': customer})
     else:
         form = CustomerForm()
     return render(request, 'customer/new.html')
@@ -23,11 +24,13 @@ def create(request):
 
 def show(request, id):
     customer = Customer.objects.get(id=id)
-    return render(request, "customer/show.html", {'customer': customer})
+    account_types = AccountType.objects.all()
+    return render(request, "customer/show.html", {'customer': customer}, {'account_types': account_types})
 
 
 def new(request):
-    return render(request, "customer/new.html")
+    account_types = AccountType.objects.all()
+    return render(request, "customer/new.html", {'account_types': account_types})
 
 
 def edit(request, id):
@@ -37,9 +40,10 @@ def edit(request, id):
 
 def update(request, id):
     customer = Customer.objects.get(id=id)
-    customer.name = request.POST['name']
-    customer.loan_intrest_rate = request.POST['loan_intrest_rate']
-    customer.saving_intrest_rate = request.POST['saving_intrest_rate']
+    customer.amount_limit = request.POST['amount_limit']
+    customer.current_balance = request.POST['current_balance']
+    customer.account_number = request.POST['account_number']
+    # customer.account_type = request.POST['account_type']
     customer.save()
     return render(request, "customer/show.html", {'customer': customer})
 

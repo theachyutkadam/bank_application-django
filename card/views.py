@@ -35,7 +35,8 @@ def new(request):
 
 def edit(request, id):
     card = Card.objects.get(id=id)
-    return render(request, 'card/edit.html', {'card': card})
+    customers = Customer.objects.all()
+    return render(request, 'card/edit.html', {'card': card, 'customers': customers})
 
 
 def update(request, id):
@@ -45,7 +46,7 @@ def update(request, id):
     card.expiry_date = request.POST['expiry_date']
     card.cvv_code = request.POST['cvv_code']
     card.status = request.POST['status']
-    card.is_deleted = request.POST['is_deleted']
+    # card.is_deleted = request.POST['is_deleted']
     # card.customer = request.POST['customer']
     card.save()
     return render(request, "card/show.html", {'card': card})

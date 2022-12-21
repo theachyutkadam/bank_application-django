@@ -1,0 +1,37 @@
+{% extends "dashboard.html" %}
+{% block body %}
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Title</th>
+      <th scope="col">Number</th>
+      <th scope="col">ExpiryDate</th>
+      <th scope="col">CVV Code</th>
+      <th scope="col">Status</th>
+      <th scope="col">Is Deleted</th>
+      <th scope="col">Customer</th>
+      <th scope="col"><a href="/card/new" class="btn btn-primary">New Customer</a></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for card in cards %}
+    <tr>
+      <td>{{ card.id }}</td>
+      <td>{{ card.title }}</td>
+      <td>{{ card.number }}</td>
+      <td>{{ card.expiry_date }}</td>
+      <td>{{ card.cvv_code }}</td>
+      <td>{{ card.status }}</td>
+      <td>{{ card.is_deleted }}</td>
+      <td>{{ card.customer.account_number }}</td>
+      <td>
+        <a href="/card/show/{{ card.id }}" class="btn btn-info">Show</a>
+        <a href="/card/edit/{{ card.id }}" class="btn btn-success">Edit</a>
+        <a href="/card/delete/{{ card.id }}" class="btn btn-danger">Delete</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock body %}

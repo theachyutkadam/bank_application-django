@@ -1,0 +1,32 @@
+{% extends "dashboard.html" %}
+{% block body %}
+<div class="container">
+  <h4>Show Customer</h4>
+  {% csrf_token %}
+  <div class="mb-3">
+    Title ={{ card.title }}
+  </div>
+  <div class="mb-3">
+    Number = {{ card.number }}
+  </div>
+  <div class="mb-3">
+    Expiry Date = {{ card.expiry_date }}
+  </div>
+  <div class="mb-3">
+    CVV Code = {{ card.cvv_code }}
+  </div>
+  <div class="mb-3">
+    Status = {{ card.status }}
+  </div>
+  <div class="mb-3">
+    IsDeleted = {{ card.is_deleted }}
+  </div>
+  <div class="mb-3">
+    Customer = {{ card.customer.account_number }}
+  </div>
+  <div class="mb-3">
+    <a href="/card/new" class="btn btn-primary">Add New</a>
+    <a href="/card" class="btn btn-light">Back</a>
+  </div>
+</div>
+{% endblock body %}

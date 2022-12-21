@@ -1,0 +1,57 @@
+{% extends "dashboard.html" %}
+{% block body %}
+<div class="container">
+  <h4>Create Employee</h4>
+  <form method="POST" class="post-form" action="create">
+    {% csrf_token %}
+    <div class="mb-3">
+      <input type="text" name="salary_amount" id="salary_amount" placeholder="Salary">
+    </div>
+    <div class="mb-3">
+      <input type="text" name="date_of_joining" id="date_of_joining" placeholder="Joining Date">
+    </div>
+    <div class="mb-3">
+      <input type="text" name="work_status" id="work_status" placeholder="Work Status">
+    </div>
+    <div class="mb-3">
+      <input type="text" name="designation" id="designation" placeholder="Designation">
+    </div>
+    <div class="mb-3">
+      <input type="text" name="official_email" id="official_email" placeholder="Official Email">
+    </div>
+    <div class="mb-3">
+      <input type="text" name="education" id="education" placeholder="Education">
+    </div>
+    <!-- <div class="mb-3">
+      <select name="account_type" id="account_type" class="form-control">
+        <option value="" selected>Please select a Manager</option>
+        {% for manager in managers %}
+        <option value="{{ manager.id }}">{{ manager.name }}</option>
+        {% endfor %}
+      </select>
+    </div> -->
+    <div class="mb-3">
+      <select name="department" id="department" class="form-control">
+        <option value="" selected>Please select a Department</option>
+        {% for department in departments %}
+        <option value="{{ department.id }}">{{ department.name }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="mb-3">
+      <select name="customer" id="customer" class="form-control">
+        <option value="" selected>Please select a Customer</option>
+        {% for customer in customers %}
+        <option value="{{ customer.id }}">{{ customer.account_number }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="mb-3">
+      <div class="col-sm-4">
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <a href="/employee">Back</a>
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock body %}

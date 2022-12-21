@@ -1,0 +1,35 @@
+{% extends "dashboard.html" %}
+{% block body %}
+<div class="container">
+  <h4>Edit Customer</h4>
+  <form method="POST" class="post-form" action="/customer/update/{{customer.id}}">
+    {% csrf_token %}
+    <div class="mb-3">
+      <input type="text" name="amount_limit" id="amount_limit" placeholder="Amount Limit"
+        value="{{ customer.amount_limit }}">
+    </div>
+    <div class="mb-3">
+      <input type="text" name="current_balance" id="current_balance" placeholder="Current Balance"
+        value="{{ customer.current_balance }}">
+    </div>
+    <div class="mb-3">
+      <input type="text" name="account_number" id="account_number" placeholder="Account Number"
+        value="{{ customer.account_number }}">
+    </div>
+    <div class="mb-3">
+      <select name="account_type" id="account_type" class="form-control">
+        <option value="{{ customer.account_type.id }}" selected>{{ customer.account_type.name}}</option>
+        {% for account_type in account_types %}
+        <option value="{{ account_type.id }}">{{ account_type.name }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="mb-3">
+      <div class="col-sm-4">
+        <button type="submit" class="btn btn-primary">Update</button>
+        <a href="/customer">Back</a>
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock body %}

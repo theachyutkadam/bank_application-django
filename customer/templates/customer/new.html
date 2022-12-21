@@ -1,0 +1,32 @@
+{% extends "dashboard.html" %}
+{% block body %}
+<div class="container">
+  <h4>Create Customer</h4>
+  <form method="POST" class="post-form" action="create">
+    {% csrf_token %}
+    <div class="mb-3">
+      <input type="text" name="amount_limit" id="amount_limit" placeholder="Amount Limit">
+    </div>
+    <div class="mb-3">
+      <input type="text" name="current_balance" id="current_balance" placeholder="Current Balance">
+    </div>
+    <div class="mb-3">
+      <input type="text" name="account_number" id="account_number" placeholder="Account Number">
+    </div>
+    <div class="mb-3">
+      <select name="account_type" id="account_type" class="form-control">
+        <option value="" selected>Please select a AccountType</option>
+        {% for account_type in account_types %}
+        <option value="{{ account_type.id }}">{{ account_type.name }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="mb-3">
+      <div class="col-sm-4">
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <a href="/customer">Back</a>
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock body %}
